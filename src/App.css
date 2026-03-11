@@ -1,0 +1,93 @@
+/* ── Page layout ───────────────────────────────────────────────────── */
+.page {
+  padding-top: 64px;
+  /* offset for fixed navbar */
+}
+
+/* ── Loading screen ────────────────────────────────────────────────── */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--black);
+  z-index: 9999;
+}
+
+.loader__logo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.loader__bar {
+  width: 200px;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader__bar::after {
+  content: '';
+  position: absolute;
+  left: -60%;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: var(--gold);
+  animation: loadBar 1.2s ease-in-out infinite;
+}
+
+@keyframes loadBar {
+  from {
+    left: -60%;
+  }
+
+  to {
+    left: 110%;
+  }
+}
+
+.loader__text {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+/* ── Footer ────────────────────────────────────────────────────────── */
+.footer {
+  padding: 60px 80px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.4);
+}
+
+.footer__copy {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+}

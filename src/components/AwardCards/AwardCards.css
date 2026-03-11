@@ -1,0 +1,108 @@
+.award-cards {
+  background: var(--black);
+  padding-bottom: 2px;
+}
+
+.award-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto;
+  gap: 2px;
+}
+
+/* ── Individual card ───────────────────────────────────────────────── */
+.award-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--card);
+  aspect-ratio: 3 / 4;
+}
+
+.award-card--featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: unset;
+}
+
+.award-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.award-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ── Overlay ───────────────────────────────────────────────────────── */
+.award-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.94) 0%,
+    rgba(10, 10, 10, 0.40) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 20px 20px;
+  transition: background 0.3s;
+}
+
+.award-card--featured .award-card__overlay {
+  padding: 40px 36px 36px;
+}
+
+.award-card:hover .award-card__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.98) 0%,
+    rgba(10, 10, 10, 0.60) 50%,
+    rgba(10, 10, 10, 0.10) 100%
+  );
+}
+
+/* ── Text ──────────────────────────────────────────────────────────── */
+.award-card__label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.award-card--featured .award-card__label {
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+
+.award-card__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.award-card--featured .award-card__name {
+  font-size: 32px;
+}
+
+.award-card__sponsor {
+  font-size: 9px;
+  color: var(--grey);
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+}
+
+.award-card--featured .award-card__sponsor {
+  font-size: 10px;
+  margin-top: 12px;
+}
