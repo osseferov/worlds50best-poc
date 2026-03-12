@@ -42,6 +42,20 @@ export const SCHEMA = [
     ],
   },
   {
+  name: 'videos',
+  endpoint: '/items/videos',
+  fields: [
+    { name: 'id',            type: 'integer' },
+    { name: 'title',         type: 'string'  },
+    { name: 'category',      type: 'string'  },
+    { name: 'date',          type: 'string'  },
+    { name: 'youtube_id',    type: 'string'  },
+    { name: 'thumbnail_url', type: 'string'  },
+    { name: 'duration',      type: 'string'  },
+    { name: 'sort',          type: 'integer' },
+  ],
+},
+  {
     name: 'partners',
     endpoint: '/items/partners',
     fields: [

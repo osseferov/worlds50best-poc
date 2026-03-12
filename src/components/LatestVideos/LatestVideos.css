@@ -1,0 +1,230 @@
+.latest-videos {
+  padding: 100px 0;
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+}
+
+.latest-videos__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+/* ── Header ────────────────────────────────────────────────────────── */
+.latest-videos__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.latest-videos__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--white);
+}
+
+.latest-videos__link {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+
+.latest-videos__link:hover {
+  gap: 14px;
+}
+
+/* ── Grid ──────────────────────────────────────────────────────────── */
+.latest-videos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+/* ── Card ──────────────────────────────────────────────────────────── */
+.video-card {
+  background: var(--card);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Thumbnail ─────────────────────────────────────────────────────── */
+.video-card__thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.video-card:hover .video-card__thumb img {
+  transform: scale(1.04);
+}
+
+.video-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.3);
+  transition: background 0.3s;
+}
+
+.video-card__overlay--hover {
+  background: rgba(10, 10, 10, 0.5);
+}
+
+/* ── Play button ───────────────────────────────────────────────────── */
+.video-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.9);
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  padding-left: 3px; /* optical centering for triangle */
+}
+
+.video-card:hover .video-card__play {
+  background: var(--gold);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ── Duration badge ────────────────────────────────────────────────── */
+.video-card__duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  background: rgba(10, 10, 10, 0.8);
+  color: var(--white);
+  padding: 3px 7px;
+  border-radius: 2px;
+}
+
+/* ── Body ──────────────────────────────────────────────────────────── */
+.video-card__body {
+  padding: 20px 20px 24px;
+  border-top: 1px solid var(--border);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.video-card__category {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.video-card__title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--white);
+}
+
+.video-card__date {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 4px;
+}
+
+/* ── Modal ─────────────────────────────────────────────────────────── */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(10, 10, 10, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  animation: modalIn 0.25s ease both;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.video-modal__inner {
+  position: relative;
+  width: 90vw;
+  max-width: 1100px;
+  animation: modalScale 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes modalScale {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.video-modal__close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--grey);
+  font-size: 16px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.video-modal__close:hover {
+  color: var(--white);
+  border-color: var(--white);
+}
+
+.video-modal__embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video-modal__embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

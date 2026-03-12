@@ -10,6 +10,7 @@ import Navbar        from './components/Navbar/Navbar';
 import Hero          from './components/Hero/Hero';
 import AwardCards    from './components/AwardCards/AwardCards';
 import Stories       from './components/Stories/Stories';
+import Videos        from './components/LatestVideos/LatestVideos';
 import Partners      from './components/Partners/Partners';
 import SchemaPanel   from './components/SchemaPanel/SchemaPanel';
 import DirectusBadge from './components/DirectusBadge/DirectusBadge';
@@ -21,15 +22,17 @@ export default function App() {
     hero: null,
     awards: [],
     stories: [],
+    videos: [],
     partners: [],
   });
 
   useEffect(() => {
     async function loadAll() {
-      const [heroData, awards, stories, partners] = await Promise.all([
+      const [heroData, awards, stories, videos, partners] = await Promise.all([
         fetchCollection("hero_banner"),
         fetchCollection("award_cards"),
         fetchCollection("stories"),
+        fetchCollection("videos"),
         fetchCollection("partners"),
       ]);
 
@@ -41,6 +44,7 @@ export default function App() {
         hero,
         awards: awards ?? [],
         stories: stories ?? [],
+        videos: videos ?? [],
         partners: partners ?? [],
       });
       setLoading(false);
@@ -66,13 +70,16 @@ export default function App() {
         <Hero data={data.hero} />
         <AwardCards cards={data.awards} />
         <Stories stories={data.stories} />
+        <Videos videos={data.videos} />
         <Partners partners={data.partners} />
       </main>
 
       <footer>
         <div className="footer">
           <span className="footer__logo">The World's 50 Best Restaurants</span>
-          <span className="footer__copy">© 2025 William Reed Ltd. POC built with Directus + React</span>
+          <span className="footer__copy">
+            © 2025 William Reed Ltd. POC built with Directus + React
+          </span>
         </div>
       </footer>
 
