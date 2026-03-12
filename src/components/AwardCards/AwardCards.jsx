@@ -16,7 +16,7 @@ function AwardCard({ card, index }) {
   return (
     <div className={`award-card ${card.featured ? 'award-card--featured' : ''}`}>
       <img
-        src={card.image_url}
+        src={card.image}
         alt={card.name}
         onError={handleImgError}
       />

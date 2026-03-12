@@ -2,6 +2,8 @@
 .page {
   padding-top: 64px;
   /* offset for fixed navbar */
+  width: 100%;
+  max-width: 100%;
 }
 
 /* ── Loading screen ────────────────────────────────────────────────── */

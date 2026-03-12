@@ -11,7 +11,7 @@ function StoryCard({ story }) {
   return (
     <article className="story-card">
       <div className="story-card__image-wrap">
-        <img src={story.image_url} alt={story.title} />
+        <img src={story.image} alt={story.title} />
       </div>
       <div className="story-card__body">
         <div className="story-card__meta">

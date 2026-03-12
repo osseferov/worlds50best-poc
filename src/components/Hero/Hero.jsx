@@ -8,7 +8,7 @@ export default function Hero({ data }) {
     <section className="hero">
       <img
         className="hero__image"
-        src={data.image_url}
+        src={data.image}
         alt={data.title}
       />
       <div className="hero__overlay" />

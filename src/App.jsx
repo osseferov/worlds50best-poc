@@ -26,13 +26,23 @@ export default function App() {
 
   useEffect(() => {
     async function loadAll() {
-      const [hero, awards, stories, partners] = await Promise.all([
-        fetchCollection('hero_banner'),
-        fetchCollection('award_cards'),
-        fetchCollection('stories'),
-        fetchCollection('partners'),
+      const [heroData, awards, stories, partners] = await Promise.all([
+        fetchCollection("hero_banner"),
+        fetchCollection("award_cards"),
+        fetchCollection("stories"),
+        fetchCollection("partners"),
       ]);
-      setData({ hero, awards: awards ?? [], stories: stories ?? [], partners: partners ?? [] });
+
+      // Extract first item from hero_banner array
+      const hero =
+        Array.isArray(heroData) && heroData.length > 0 ? heroData[0] : null;
+
+      setData({
+        hero,
+        awards: awards ?? [],
+        stories: stories ?? [],
+        partners: partners ?? [],
+      });
       setLoading(false);
     }
     loadAll();
