@@ -19,20 +19,23 @@
 }
 
 @keyframes heroZoom {
-  from { transform: scale(1.04); }
-  to   { transform: scale(1.0); }
+  from {
+    transform: scale(1.04);
+  }
+
+  to {
+    transform: scale(1.0);
+  }
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(10, 10, 10, 0.15) 0%,
-    rgba(10, 10, 10, 0.00) 40%,
-    rgba(10, 10, 10, 0.70) 70%,
-    rgba(10, 10, 10, 0.97) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(10, 10, 10, 0.15) 0%,
+      rgba(10, 10, 10, 0.00) 40%,
+      rgba(10, 10, 10, 0.70) 70%,
+      rgba(10, 10, 10, 0.97) 100%);
 }
 
 .hero__content {
@@ -44,8 +47,15 @@
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero__eyebrow {
@@ -121,4 +131,42 @@
 
 .hero__cta:hover svg {
   transform: translateX(4px);
+}
+
+/* ── Mobile ────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 480px;
+  }
+
+  .hero__content {
+    padding: 0 20px 40px;
+    max-width: 100%;
+  }
+
+  .hero__eyebrow {
+    font-size: 9px;
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+
+  .hero__eyebrow::before {
+    width: 24px;
+  }
+
+  .hero__title {
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 16px;
+  }
+
+  .hero__subtitle {
+    font-size: 11px;
+    margin-bottom: 24px;
+  }
+
+  .hero__cta {
+    padding: 12px 24px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
 }

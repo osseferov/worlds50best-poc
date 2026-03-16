@@ -1,15 +1,51 @@
-import './Navbar.css';
+import { useState } from "react";
+import { NAV_ITEMS } from "../../data/schema";
+import "./Navbar.css";
 
-export default function Navbar({ navItems }) {
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
-      <a className="navbar__logo" href="#">
-        The World's <span>50 Best</span> Restaurants
+      <a href="/" className="navbar__logo">
+        The World's <span>50</span> Best Restaurents
       </a>
+
+      {/* Desktop menu */}
       <ul className="navbar__links">
-        {navItems.map((item) => (
+        {NAV_ITEMS.map((item) => (
           <li key={item}>
-            <a href="#">{item}</a>
+            <a href={`#${item.toLowerCase()}`}>{item}</a>
+          </li>
+        ))}
+      </ul>
+
+      {/* Hamburger button */}
+      <button
+        className={`navbar__hamburger ${isMenuOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {/* Mobile menu */}
+      <ul className={`navbar__mobile-menu ${isMenuOpen ? "active" : ""}`}>
+        {NAV_ITEMS.map((item) => (
+          <li key={item}>
+            <a href={`#${item.toLowerCase()}`} onClick={closeMenu}>
+              {item}
+            </a>
           </li>
         ))}
       </ul>

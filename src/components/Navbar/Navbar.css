@@ -47,3 +47,129 @@
 .navbar__links a:hover {
   color: var(--gold);
 }
+
+/* ── Hamburger menu ────────────────────────────────────────────────── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  position: relative;
+}
+
+.navbar__hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s ease;
+  display: block;
+  transform-origin: center;
+  position: absolute;
+}
+
+.navbar__hamburger span:nth-child(1) {
+  top: 4px;
+}
+
+.navbar__hamburger span:nth-child(2) {
+  top: 11px;
+}
+
+.navbar__hamburger span:nth-child(3) {
+  top: 18px;
+}
+
+.navbar__hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 11px;
+}
+
+.navbar__hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 11px;
+}
+
+/* ── Mobile menu ───────────────────────────────────────────────────── */
+.navbar__mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  animation: slideDown 0.3s ease;
+  z-index: 99;
+}
+
+.navbar__mobile-menu.active {
+  display: flex;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar__mobile-menu a {
+  padding: 16px 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.7);
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  border-bottom: none;
+}
+
+.navbar__mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.05);
+}
+
+/* ── Mobile ────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .navbar__logo {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__mobile-menu a {
+    padding: 24px 20px;
+  }
+}

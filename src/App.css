@@ -93,3 +93,21 @@
   letter-spacing: 0.1em;
   color: var(--grey);
 }
+
+/* ── Mobile ────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .footer {
+    padding: 40px 20px;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer__logo {
+    font-size: 11px;
+  }
+
+  .footer__copy {
+    font-size: 9px;
+  }
+}

@@ -48,15 +48,27 @@
   filter: grayscale(0) invert(1) opacity(1);
 }
 
-/* .partners__logo {
-  height: 40px;
-  max-width: 140px;
-  object-fit: contain;
-  filter: brightness(0) invert(0.5);
-  transition: filter 0.3s;
-  cursor: pointer;
-}
+/* ── Mobile ────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .partners {
+    padding: 60px 0;
+  }
 
-.partners__logo:hover {
-  filter: brightness(0) invert(0.85);
-} */
+  .partners__inner {
+    padding: 0 20px;
+  }
+
+  .partners__label {
+    font-size: 9px;
+    margin-bottom: 32px;
+  }
+
+  .partners__grid {
+    gap: 24px 32px;
+  }
+
+  .partners__logo {
+    height: 45px;
+    max-width: 110px;
+  }
+}

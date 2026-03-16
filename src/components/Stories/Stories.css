@@ -138,3 +138,67 @@
 .story-card:hover .story-card__arrow {
   gap: 14px;
 }
+
+/* ── Mobile ────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .stories {
+    padding: 60px 0;
+  }
+
+  .stories__inner {
+    padding: 0 20px;
+  }
+
+  .stories__header {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+  }
+
+  .stories__title {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .stories__link {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+
+  .stories__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+  }
+
+  .story-card__body {
+    padding: 16px 12px 20px;
+  }
+
+  .story-card__meta {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .story-card__category {
+    font-size: 8px;
+  }
+
+  .story-card__date {
+    font-size: 8px;
+  }
+
+  .story-card__title {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .story-card__excerpt {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .story-card__arrow {
+    margin-top: 12px;
+    font-size: 9px;
+  }
+}
