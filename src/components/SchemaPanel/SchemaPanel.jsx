@@ -18,8 +18,7 @@ export default function SchemaPanel({ open, onClose }) {
 
       <h2 className="schema-panel__title">Directus Schema</h2>
       <p className="schema-panel__desc">
-        These collections power the homepage. Create them in your Directus instance
-        and the React app fetches via <code>GET /items/:collection</code>.
+        These collections power the homepage. React app fetches the data via <code>GET /items/:collection</code> endpoint.
       </p>
 
       {SCHEMA.map((col) => (
