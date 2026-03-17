@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <a href="/" className="navbar__logo">
-        The World's <span>50</span> Best Restaurents
+        The World's <span>50</span> Best Restaurants
       </a>
 
       {/* Desktop menu */}
